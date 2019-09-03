@@ -19,7 +19,7 @@ public class MainBorderPane extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/fxml/FXMLBorderPane.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/view/FXMLBorderPane.fxml"));
 
 		Scene scene = new Scene(root);
 

@@ -13,7 +13,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.TextField;
 import javafxbasico.model.Categoria;
 
@@ -41,41 +40,54 @@ public class FXMLListViewController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		carregarCategorias();
-
+		listViewCategoria.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> selecionarCategoria(newValue));
 	}
 
-	public void adicionarCategorias() {
-		Categoria categoria = new Categoria();
-		categoria.setNome(textFieldTexto.getText());
-		listCategoria.add(categoria);
-		textFieldTexto.clear();
+	@FXML
+	public void selecionarCategoria(Categoria categoria) {
+		if (categoria != null) {
+			textFieldTexto.setText(categoria.getNome());
+			System.out.println(categoria.getNome());
+		}
+	}
+
+	@FXML
+	public void adicionarCategoria() {
+		if (textFieldTexto.getText().trim().equals(null) || textFieldTexto.getText().trim().equals("")) {
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("Erro");
+			alert.setHeaderText("Escreva algo para inserir uma nova categoria!");
+			alert.setContentText("O texto não deve estar vazio e nem conter espaços em branco!");
+			alert.show();
+		} else {
+			Categoria categoria = new Categoria();
+			categoria.setNome(textFieldTexto.getText());
+			listCategoria.add(categoria);
+		}
 		carregarCategorias();
-	}
-
-	public void editarCategoria() {
-		MultipleSelectionModel<Categoria> categoriaSelected = listViewCategoria.getSelectionModel();
-		textFieldTexto.setText(categoriaSelected.getSelectedItem().getNome());
-		categoriaSelected.getSelectedItem().setNome(textFieldTexto.getText());
 		textFieldTexto.clear();
-		System.out.println(categoriaSelected.getSelectedIndex());
 	}
 
+	@FXML
 	public void removerCategoria() {
-		int selectedIndex = listViewCategoria.getSelectionModel().getSelectedIndex();
+		Categoria categoria = listViewCategoria.getSelectionModel().getSelectedItem();
 
-		if (selectedIndex < 0) {
+		if (categoria == null) {
 			Alert alert = new Alert(Alert.AlertType.WARNING);
 			alert.setTitle("Erro");
 			alert.setHeaderText("Escolha um item na lista para remover!");
 			alert.setContentText("Clique e selecione o ítem para poder remover!");
 			alert.show();
 		} else {
-			listCategoria.remove(selectedIndex);
-			carregarCategorias();
-		}
 
+			listCategoria.remove(categoria);
+		}
+		carregarCategorias();
+		textFieldTexto.clear();
 	}
 
+	@FXML
 	public void carregarCategorias() {
 		obsCategoria = FXCollections.observableArrayList(listCategoria);
 		listViewCategoria.setItems(obsCategoria);

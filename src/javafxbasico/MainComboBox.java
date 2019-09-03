@@ -19,7 +19,7 @@ public class MainComboBox extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/fxml/FXMLComboBox.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/view/FXMLComboBox.fxml"));
 
 		Scene scene = new Scene(root);
 

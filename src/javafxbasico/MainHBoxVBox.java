@@ -19,7 +19,7 @@ public class MainHBoxVBox extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/fxml/FXMLHBoxVBox.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/view/FXMLHBoxVBox.fxml"));
         
         Scene scene = new Scene(root);
         

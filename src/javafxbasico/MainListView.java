@@ -19,7 +19,7 @@ public class MainListView extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/fxml/FXMLListView.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/view/FXMLListView.fxml"));
 
 		Scene scene = new Scene(root);
 

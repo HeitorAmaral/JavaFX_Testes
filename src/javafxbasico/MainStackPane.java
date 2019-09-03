@@ -19,7 +19,7 @@ public class MainStackPane extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/fxml/FXMLStackPane.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/view/FXMLStackPane.fxml"));
 
 		Scene scene = new Scene(root);
 

@@ -19,7 +19,7 @@ public class MainAlert extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/fxml/FXMLAlert.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/view/FXMLAlert.fxml"));
 
 		Scene scene = new Scene(root);
 

@@ -19,7 +19,7 @@ public class MainButton extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/fxml/FXMLButton.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/view/FXMLButton.fxml"));
         
         Scene scene = new Scene(root);
         

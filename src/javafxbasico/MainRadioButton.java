@@ -19,7 +19,7 @@ public class MainRadioButton extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/fxml/FXMLRadioButton.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/view/FXMLRadioButton.fxml"));
 
 		Scene scene = new Scene(root);
 

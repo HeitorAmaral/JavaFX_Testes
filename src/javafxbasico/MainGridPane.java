@@ -19,7 +19,7 @@ public class MainGridPane extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/fxml/FXMLGridPane.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../javafxbasico/view/FXMLGridPane.fxml"));
 
 		Scene scene = new Scene(root);
 
